@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AtlasAct helps organisations inventory their AI systems and classify them by EU AI Act risk level.">
+<title>AtlasAct | EU AI Act inventory and risk classification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><h1><img src="assets/logo.png" width="1000" height="340" alt="AtlasAct, AI Act compliance platform"></h1></div></header>
+
+<main class="wrap layout">
+  <aside>
+    <form id="form" class="panel">
+      <h2>Register an AI system</h2>
+      <label class="field">System name<input id="name" required autocomplete="off"></label>
+      <label class="field">Intended purpose<input id="purpose" placeholder="e.g. CV screening for recruiters" autocomplete="off"></label>
+      <div id="flags"></div>
+      <button class="primary">Classify and add</button>
+    </form>
+  </aside>
+
+  <section>
+    <div class="overview">
+      <h2>Risk overview</h2>
+      <p id="total" class="muted"></p>
+      <div id="bar" class="bar" role="img"></div>
+      <ul id="legend" class="legend"></ul>
+    </div>
+
+    <div class="head">
+      <h2>AI system inventory</h2>
+      <button id="export" class="ghost" type="button">Export report</button>
+    </div>
+    <div id="tablewrap" class="scroll" hidden>
+      <table>
+        <thead><tr><th>System</th><th>Risk level</th><th>Basis</th><th>Obligations</th><th><span class="sr">Actions</span></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p id="empty" class="empty">No AI systems registered yet. Add your first system to see its risk level and the obligations that apply.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">AtlasAct supports internal assessment and does not constitute legal advice. Confirm classifications with qualified counsel. All data stays in your browser.</div></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
